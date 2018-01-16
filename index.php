@@ -6,7 +6,10 @@
  * Time: 2:11 PM
  */
 
-//require the autoload file
+error_reporting(E_ALL);
+ini_set("display_errors",1);
+
+//require the autoload f/*ile
 require_once ('vendor/autoload.php');
 
 //create an instance of the base class
@@ -39,7 +42,7 @@ $f3->route('GET /page2', function (){
 
 });
 
-//a sub directory of the page 1
+//a sub directory of the page
 //page 1 route creation
 $f3->route('GET /page1/subpage-a', function (){
 
@@ -49,8 +52,18 @@ $f3->route('GET /page1/subpage-a', function (){
 
 });
 
+//define a default rote
+$f3->route('GET /jewelery/rings/toe-rings', function (){
 
+    //old version
 
+    //$view = new View;
+    // echo $view->render('views/home.html');
+
+    $template = new Template();
+    echo $template->render('views/toe-rings.html');
+
+});
 
 //fatfree enable error reporting
 $f3->set('DEBUG',3); // highest is 3 lowest 0;
